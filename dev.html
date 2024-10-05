@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NVTC - Orrery Code Generator</title>
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/images/fav/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/images/fav/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/images/fav/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/images/fav/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/images/fav/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/images/fav/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/images/fav/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/images/fav/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/images/fav/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/images/fav/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+    <link rel="manifest" href="assets/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/images/fav/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/dev.css" />
+  </head>
+  <body>
+    <div class="main-container">
+        <!-- Left Container (Customization Settings) -->
+        <div class="left-container">
+          <h1><i class="fa-solid fa-terminal"></i> Orrery Code Generator</h1>
+          <form id="codeGeneratorForm">
+            <label for="comets">Number of Comets:</label>
+            <input type="number" id="comets" name="comets" min="1" max="100" value="10" />
+            <label for="rings">Number of Rings:</label>
+            <input type="number" id="rings" name="rings" min="1" max="20" value="5" />
+            <label for="timeRange">Time Range (Years):</label>
+            <select id="timeRange" name="timeRange">
+              <option value="10">Last 10 years</option>
+              <option value="20">Last 20 years</option>
+              <option value="30">Last 30 years</option>
+            </select>
+            <label for="cometSize">Comet Size (Scale):</label>
+            <input type="range" id="cometSize" name="cometSize" min="0.1" max="2" step="0.1" value="1" />
+            <label for="orbitSpeed">Orbit Speed:</label>
+            <input type="range" id="orbitSpeed" name="orbitSpeed" min="0.01" max="0.1" step="0.01" value="0.05" />
+            <label for="cometColor">Comet Color:</label>
+            <input type="color" id="cometColor" name="cometColor" value="#ffffff" />
+            <button type="button" id="generateCodeBtn">Generate Code</button>
+          </form>
+        </div>
+        <!-- Right Container (Generated Code and Preview) -->
+        <div class="right-container">
+          <div class="output">
+            <h2><i class="fa-solid fa-code"></i> Generated Code</h2>
+            <pre id="generatedCode"></pre>
+            <button id="copyCodeBtn">Copy Code</button>
+          </div>
+          <div id="scene-container"></div>
+        </div>
+      </div>
+  
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+      <script src="assets/js/dev.js"></script>
+    </body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NVTC - Orrery web app</title>
+  <link rel="apple-touch-icon" sizes="57x57" href="assets/images/fav/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="assets/images/fav/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="assets/images/fav/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="assets/images/fav/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="assets/images/fav/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="assets/images/fav/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="assets/images/fav/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/images/fav/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/images/fav/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/images/fav/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/images/fav/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="assets/images/fav/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/images/fav/favicon-16x16.png">
+  <link rel="manifest" href="assets/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="assets/images/fav/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+
+<body class="night-mode">
+  <div class="solar-system">
+    <div class="sun">
+      <img src="assets/images/sun.png" alt="Sun" />
+    </div>
+    <!-- Planets -->
+    <div class="orbit earth-orbit" data-orbit-speed="67">
+      <div class="planet earth" data-rotation-speed="1" data-planet="Earth">
+        <p class="speed">Speed <span>67,000/mh</span></p>
+        <img id="earth" src="assets/images/earth_256.png" alt="Earth" />
+      </div>
+    </div>
+    <div class="orbit mars-orbit" data-orbit-speed="53">
+      <div class="planet mars" data-rotation-speed="1.03" data-planet="Mars">
+        <p class="speed">Speed <span>53,979/mh</span></p>
+        <img id="mars" src="assets/images/mars_256.png" alt="Mars" />
+      </div>
+    </div>
+    <div class="orbit jupiter-orbit" data-orbit-speed="29">
+      <div class="planet jupiter" data-rotation-speed="0.41" data-planet="Jupiter">
+        <p class="speed">Speed <span>29,236/mh</span></p>
+        <img id="jupiter" src="assets/images/jupiter_256.png" alt="Jupiter" />
+      </div>
+    </div>
+    <div class="comet-orbit">
+      <div class="comet" data-planet="Comet">
+        <p class="speed">Speed <span>17,895/mh</span></p>
+        <img src="assets/images/comet.png" alt="Comet" />
+        <div class="comet-tail"></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="planet-info-modal" class="modal">
+    <div class="modal-content">
+      <span class="close" aria-label="Close modal">&times;</span>
+      <h2 id="planet-title">Planet Name</h2>
+      <div id="planet-description">Description goes here.</div>
+      <img id="planet-image" src="" alt="Planet" />
+    </div>
+  </div>
+
+
+  <div class="control-panel-container">
+    <div class="control-panel">
+      <h4>Control System</h4>
+      <button onclick="window.location.href='orbit.html'">Orbit Viewer <i class="fas fa-filter"></i></button>
+      <label for="speedControl">Orbit Speed</label>
+      <input type="range" id="speedControl" min="5" max="50" value="20" />
+
+      <label for="rotationControl">Planet Rotation Speed</label>
+      <input type="range" id="rotationControl" min="1" max="50" value="10" />
+
+
+      <label for="zoomControl">Zoom</label>
+      <input type="range" id="zoomControl" min="0.5" max="2" step="0.1" value="1" />
+
+      <label for="modeSwitch">Night Mode</label>
+      <input type="checkbox" id="modeSwitch" checked />
+
+      <label for="orbitToggle">Show Orbits</label>
+      <input type="checkbox" id="orbitToggle" checked />
+
+      <label for="planetSizeControl">Planet Size</label>
+      <input type="range" id="planetSizeControl" min="50" max="200" value="64" />
+
+      <label for="presetSpeed">Speed Presets:</label>
+      <button id="slowMode">Slow</button>
+      <button id="mediumMode">Medium</button>
+      <button id="fastMode">Fast</button>
+      <button onclick="window.location.href='index.html'">Exit <i class="fas fa-right-from-bracket"></i></button>
+      <div id="analytics">
+        <p>Total time exploring: <span id="exploreTime">0</span> seconds</p>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/app.js"></script>
+</body>
+
+</html>
